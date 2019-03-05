@@ -8,9 +8,6 @@ import Content from '../elements/Content'
 import { UpDown, UpDownWide } from '../styles/animations'
 import SVG from '../components/SVG'
 
-import ReactDipper from 'react-dipper';
-
-
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
 `
