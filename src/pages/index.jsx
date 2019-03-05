@@ -141,11 +141,11 @@ const Index = () => {
           <Hero offset={0}>
             <BigTitle>
               Nice to meet you, <br /> I'm Alex Oliynyk
-          </BigTitle>
+            </BigTitle>
             <Typist.Delay ms={500} />
             <Subtitle>
-              I am Full Stack Javascript developer who enjoys creating stellar digital experiences with modern tech
-          </Subtitle>
+              Full Stack Javascript developer who enjoys creating stellar digital experiences with modern tech
+            </Subtitle>
           </Hero>
         </Typist>
         <Projects offset={1}>
