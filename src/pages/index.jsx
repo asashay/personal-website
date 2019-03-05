@@ -2,6 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { Parallax } from 'react-spring/renderprops-addons.cjs'
+import Typist from 'react-typist';
+
+import cc1 from '../images/cc1.png';
+import cc2 from '../images/cc2.png';
+import cc3 from '../images/cc3.png';
+import cc4 from '../images/cc4.png';
+import cc5 from '../images/cc5.png';
+
+import jt1 from '../images/jt1.png';
+import jt2 from '../images/jt2.png';
+import jt3 from '../images/jt3.png';
+import jt4 from '../images/jt4.png';
+import jt5 from '../images/jt5.png';
+
+import ws1 from '../images/ws1.png';
+import ws2 from '../images/ws2.png';
+import ws3 from '../images/ws3.png';
+import ws4 from '../images/ws4.png';
+import ws5 from '../images/ws5.png';
+
+import sr1 from '../images/sr1.png';
+import sr2 from '../images/sr2.png';
+import sr3 from '../images/sr3.png';
+import sr4 from '../images/sr4.png';
+import sr5 from '../images/sr5.png';
 
 // Components
 import Layout from '../components/Layout'
@@ -9,6 +34,7 @@ import ProjectCard from '../components/ProjectCard'
 
 // Elements
 import Inner from '../elements/Inner'
+import TechTag from '../elements/TechTag'
 import { Title, BigTitle, Subtitle } from '../elements/Titles'
 
 // Views
@@ -57,83 +83,188 @@ const Footer = styled.footer`
   ${tw`text-center text-grey absolute pin-b p-6 font-sans text-md lg:text-lg`};
 `
 
-const Index = () => (
-  <>
-    <Layout />
-    <Parallax pages={5}>
-      <Hero offset={0}>
-        <BigTitle>
-          Hello, <br /> I'm John Doe.
-        </BigTitle>
-        <Subtitle>I'm creating noice web experiences for the next generation of consumer-facing companies.</Subtitle>
-      </Hero>
-      <Projects offset={1}>
-        <Title>Projects</Title>
-        <ProjectsWrapper>
-          <ProjectCard
-            title="Freiheit"
-            link="https://www.behance.net/gallery/58937147/Freiheit"
-            bg="linear-gradient(to right, #D4145A 0%, #FBB03B 100%)"
-          >
-            This project is my entry to Adobe's #ChallengeYourPerspective contest.
-          </ProjectCard>
-          <ProjectCard
-            title="Harry Potter"
-            link="https://www.behance.net/gallery/52915793/Harry-Potter"
-            bg="linear-gradient(to right, #662D8C 0%, #ED1E79 100%)"
-          >
-            I entered the DOCMA 2017 award with this Harry Potter inspired image.
-          </ProjectCard>
-          <ProjectCard
-            title="Tomb Raider"
-            link="https://www.behance.net/gallery/43907099/Tomb-Raider"
-            bg="linear-gradient(to right, #009245 0%, #FCEE21 100%)"
-          >
-            Recreation of a Tomb Raider Wallpaper (Fan Art)
-          </ProjectCard>
-          <ProjectCard
-            title="Eagle"
-            link="https://www.behance.net/gallery/38068151/Eagle"
-            bg="linear-gradient(to right, #D585FF 0%, #00FFEE 100%)"
-          >
-            A fantasy image manipulation relocating the habitat of wild animals.
-          </ProjectCard>
-        </ProjectsWrapper>
-      </Projects>
-      <About offset={3}>
-        <Title>About</Title>
-        <AboutHero>
-          <Avatar src={avatar} alt="John Doe" />
-          <AboutSub>
-            The English language can not fully capture the depth and complexity of my thoughts. So I'm incorporating
-            Emoji into my speech to better express myself. Winky face.
-          </AboutSub>
-        </AboutHero>
-        <AboutDesc>
-          You know the way you feel when you see a picture of two otters holding hands? That's how you're gonna feel
-          every day. My mother cried the day I was born because she knew she’d never be prettier than me. You should
-          make me your campaign manager. I was born for politics. I have great hair and I love lying. Captain? The kids
-          want to know where Paulie the Pigeon is. I told them he got sucked up into an airplane engine, is that all
-          right?
-        </AboutDesc>
-      </About>
-      <Contact offset={4}>
-        <Inner>
-          <Title>Get in touch</Title>
-          <ContactText>
-            Say <a href="mailto:plizNoSp4m@domain.tld">Hi</a> or find me on other platforms:{' '}
-            <a href="https://dribbble.com/LekoArts">Dribbble</a> &{' '}
-            <a href="https://www.instagram.com/lekoarts.de/">Instagram</a>
-          </ContactText>
-        </Inner>
-        <Footer>
-          &copy; 2019 by Gatsby Starter Portfolio Cara.{' '}
-          <a href="https://github.com/LekoArts/gatsby-starter-portfolio-cara">Github Repository</a>. Made by{' '}
-          <a href="https://www.lekoarts.de">LekoArts</a>.
-        </Footer>
-      </Contact>
-    </Parallax>
-  </>
-)
+const Index = () => {
+  const cryptoCritiquesTech = [
+    'React', 'Google Cloud', 'Node.js', 'MongoDB', 'Docker'
+  ]
+
+  const ccImages = [
+    { original: cc1 },
+    { original: cc2 },
+    { original: cc3 },
+    { original: cc4 },
+    { original: cc5 },
+  ]
+
+  const jamtagTech = [
+    'React', 'Node.js', 'Firebase'
+  ]
+
+  const jtImages = [
+    { original: jt1 },
+    { original: jt2 },
+    { original: jt3 },
+    { original: jt4 },
+    { original: jt5 },
+  ]
+
+  const windscribeTech = [
+    'Chrome Extension', 'React'
+  ]
+
+  const wsImages = [
+    { original: ws1 },
+    { original: ws2 },
+    { original: ws3 },
+    { original: ws4 },
+    { original: ws5 },
+  ]
+
+  const simplerayTech = [
+    'React', 'AngularJS', 'Node.js', 'MongoDB',
+    'Google Cloud', 'Docker', 'Automated deployments'
+  ]
+
+  const srImages = [
+    { original: sr1 },
+    { original: sr2 },
+    { original: sr3 },
+    { original: sr4 },
+    { original: sr5 },
+  ]
+
+  return (
+    <>
+      <Layout />
+      <Parallax pages={5}>
+        <Typist avgTypingDelay={10} startDelay={500}>
+          <Hero offset={0}>
+            <BigTitle>
+              Nice to meet you, <br /> I'm Alex Oliynyk
+          </BigTitle>
+            <Typist.Delay ms={500} />
+            <Subtitle>
+              I am Full Stack Javascript developer who enjoys creating stellar digital experiences with modern tech
+          </Subtitle>
+          </Hero>
+        </Typist>
+        <Projects offset={1}>
+          <Title>My favourite projects</Title>
+          <ProjectsWrapper>
+            <ProjectCard
+              title="Crypto Critiques"
+              link="https://www.cryptocritiques.com/home"
+              bg="linear-gradient(to right, #2C5364, #203A43, #0F2027)"
+              images={ccImages}
+            >
+              <p>From the ground up built the web app with the crypto currencies info and custom CMS. It has:</p>
+              <ul>
+                <li>Integration with the 3rd party APIs</li>
+                <li>Data scraper</li>
+                <li>Been deployed to Google Cloud</li>
+              </ul>
+              <div >
+                {
+                  cryptoCritiquesTech.map(i => <TechTag>{i}</TechTag>)
+                }
+              </div>
+            </ProjectCard>
+            <ProjectCard
+              title="Jam Tag"
+              link="https://jamtag.co"
+              bg="linear-gradient(to right, #904e95, #e96443)"
+              images={jtImages}
+            >
+              <p>The main idea of the project is to help
+                musicians find someone to jam with. Core features:</p>
+              <ul>
+                <li>users matching</li>
+                <li>user's showcase (integration with Youtube and SoundCloud)</li>
+                <li>build-in chat</li>
+              </ul>
+              <div >
+                {
+                  jamtagTech.map(i => <TechTag>{i}</TechTag>)
+                }
+              </div>
+            </ProjectCard>
+            <ProjectCard
+              title="Windscribe VPN"
+              link="https://chrome.google.com/webstore/detail/windscribe-free-vpn-and-a/hnmpcagpplmpfojmgmnngilcnanddlhb?hl=uk"
+              bg="linear-gradient(to right, #F27121, #E94057, #8A2387)"
+              images={wsImages}
+            >
+              <p>
+                Complete rewrite of Web Extension for Chrome and Firefox using React (Redux) and Web Extensions API.
+                Used by almost 1M of users worldwide. Implemented many new features:
+              </p>
+              <ul>
+                <li>Internationalization</li>
+                <li>Notifications system</li>
+                <li>Integrated new ads blocking engine</li>
+              </ul>
+              <div >
+                {
+                  windscribeTech.map(i => <TechTag>{i}</TechTag>)
+                }
+              </div>
+            </ProjectCard>
+            <ProjectCard
+              title="Simpleray"
+              link="https://simpleray.com/"
+              bg="linear-gradient(to right, #4286f4, #373B44)"
+              images={srImages}
+            >
+              <p>
+                Launched redevelopment of the internal web app used by sales people
+                and engineers for crafting customer proposals. Also did legacy app support. Main features:
+              </p>
+              <ul>
+                <li>3 staged environment (dev/test/prod)</li>
+                <li>Rich integration with 3rd party APIs</li>
+                <li>Automated tests</li>
+              </ul>
+              <div >
+                {
+                  simplerayTech.map(i => <TechTag>{i}</TechTag>)
+                }
+              </div>
+            </ProjectCard>
+          </ProjectsWrapper>
+        </Projects>
+        <About offset={3}>
+          <Title>About</Title>
+          <AboutHero>
+            <Avatar src={avatar} alt="John Doe" />
+            <AboutSub>
+              I've been into Software development with JavaScript for the last 4+ years.
+              During this time worked extensively with with Node.js, React, Angular, hacked with React Native, AWS and Google Cloud.
+              So yeah, front- and back-end development together with deployments - that's what I like to do
+            </AboutSub>
+          </AboutHero>
+          <AboutDesc>
+            In addition my technology competence covers Chrome, Firefox, Edge extensions development. 
+            Also I am familiar with deployments using AWS (EC2, Route53, S3, EBS), Google App Engine. 
+            Worked with NoSQL and SQL databases - MongoDB, PostgreSQL, MySQL, SQLite, Redis
+          </AboutDesc>
+        </About>
+        <Contact offset={4}>
+          <Inner>
+            <Title>Get in touch</Title>
+            <ContactText>
+              Find me on {' '}
+              <a href="https://twitter.com/alex__oliynyk">Twitter</a> &{' '}
+              <a href="https://www.linkedin.com/in/oleksandroliynyk/">LinkedIn</a>
+            </ContactText>
+          </Inner>
+          <Footer>
+            {/* Footer info here */}
+          </Footer>
+        </Contact>
+      </Parallax>
+
+    </>
+  )
+}
 
 export default Index

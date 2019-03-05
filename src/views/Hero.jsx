@@ -8,6 +8,9 @@ import Content from '../elements/Content'
 import { UpDown, UpDownWide } from '../styles/animations'
 import SVG from '../components/SVG'
 
+import ReactDipper from 'react-dipper';
+
+
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
 `
@@ -16,7 +19,6 @@ const Hero = ({ children, offset }) => (
   <>
     <Divider speed={0.2} offset={offset}>
       <UpDown>
-        <SVG icon="triangle" hiddenMobile width={48} stroke={colors.orange} left="10%" top="20%" />
         <SVG icon="hexa" width={48} stroke={colors.red} left="60%" top="70%" />
         <SVG icon="box" width={6} fill={colors['grey-darker']} left="60%" top="15%" />
       </UpDown>
@@ -35,7 +37,6 @@ const Hero = ({ children, offset }) => (
       <SVG icon="upDown" hiddenMobile width={24} fill={colors['grey-darker']} left="40%" top="80%" />
       <SVG icon="triangle" width={8} stroke={colors['grey-darker']} left="25%" top="5%" />
       <SVG icon="circle" width={64} fill={colors.green} left="95%" top="5%" />
-      <SVG icon="box" hiddenMobile width={64} fill={colors.purple} left="5%" top="90%" />
       <SVG icon="box" width={6} fill={colors['grey-darkest']} left="10%" top="10%" />
       <SVG icon="box" width={12} fill={colors['grey-darkest']} left="40%" top="30%" />
       <SVG icon="hexa" width={16} stroke={colors['grey-darker']} left="10%" top="50%" />

@@ -24,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
     color: #e07628;
     text-decoration: none;
   }
+
+  .image-gallery-slide {
+    background: transparent !important;
+  }
 `
 
 export default GlobalStyle
