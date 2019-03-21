@@ -31,6 +31,8 @@ import sr5 from '../images/sr5.png';
 // Components
 import Layout from '../components/Layout'
 import ProjectCard from '../components/ProjectCard'
+import CVButton from '../components/CVButton'
+import UpworkButton from '../components/UpworkButton'
 
 // Elements
 import Inner from '../elements/Inner'
@@ -68,11 +70,11 @@ const Avatar = styled.img`
 `
 
 const AboutSub = styled.span`
-  ${tw`text-white pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
+  ${tw`font-sans text-white pt-12 lg:pt-0 lg:pl-12 text-2xl lg:text-3xl xl:text-4xl`};
 `
 
 const AboutDesc = styled.p`
-  ${tw`text-grey-light text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify`};
+  ${tw`font-sans text-grey-light text-lg md:text-xl lg:text-2xl font-sans pt-6 md:pt-12 text-justify`};
 `
 
 const ContactText = styled.p`
@@ -137,17 +139,20 @@ const Index = () => {
     <>
       <Layout />
       <Parallax pages={5}>
-        <Typist avgTypingDelay={10} startDelay={500}>
-          <Hero offset={0}>
-            <BigTitle>
-              Nice to meet you, <br /> I'm Alex Oliynyk
-            </BigTitle>
-            <Typist.Delay ms={500} />
-            <Subtitle>
-              Full Stack Javascript developer who enjoys creating stellar digital experiences with modern tech
+        <Hero offset={0}>
+          <BigTitle>
+            <Typist avgTypingDelay={30} startDelay={500}>
+              Nice to meet you, <br />
+              I'm Alex Oliynyk
+            </Typist>
+          </BigTitle>
+          <Subtitle>
+            Full Stack Javascript developer crafting stellar digital
+            experiences for my clients
             </Subtitle>
-          </Hero>
-        </Typist>
+          <CVButton />
+          <UpworkButton />
+        </Hero>
         <Projects offset={1}>
           <Title>My favourite projects</Title>
           <ProjectsWrapper>
@@ -243,8 +248,8 @@ const Index = () => {
             </AboutSub>
           </AboutHero>
           <AboutDesc>
-            In addition my technology competence covers Chrome, Firefox, Edge extensions development. 
-            Also I am familiar with deployments using AWS (EC2, Route53, S3, EBS), Google App Engine. 
+            In addition my technology competence covers Chrome, Firefox, Edge extensions development.
+            Also I am familiar with deployments using AWS (EC2, Route53, S3, EBS), Google App Engine.
             Worked with NoSQL and SQL databases - MongoDB, PostgreSQL, MySQL, SQLite, Redis
           </AboutDesc>
         </About>
