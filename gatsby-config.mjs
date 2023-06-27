@@ -5,14 +5,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const config = {
   siteMetadata: {
-    siteTitle: `Cara`,
-    siteTitleAlt: `Cara - @lekoarts/gatsby-theme-cara`,
-    siteHeadline: `Cara - Gatsby Theme from @lekoarts`,
-    siteUrl: `https://cara.lekoarts.de`,
-    siteDescription: `Playful and Colorful One-Page portfolio featuring Parallax effects and animations`,
+    siteTitle: `Oleksandr (Alex) Oliynyk`,
+    siteTitleAlt: `Oleksandr (Alex) Oliynyk - Personal Website`,
+    siteHeadline: `Personal Website`,
+    siteUrl: `https://alexoliynyk.me`,
+    siteDescription: `My personal website giving the glimpse of my professional prowess.`,
     siteImage: `/banner.jpg`,
     siteLanguage: `en`,
-    author: `@lekoarts_de`,
+    author: `@alex__oliynyk`,
     basePath: '/',
   },
   plugins: [
