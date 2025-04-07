@@ -10,6 +10,7 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "build:log": "echo \"Build started at $(date)\"",
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "clean": "gatsby clean"
