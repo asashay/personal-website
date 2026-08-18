@@ -28,7 +28,6 @@ const Content = ({ speed, offset, children, className = ``, factor = 1, isStatic
         sx={{
           ...contentStyles,
           position: `relative`,
-          justifyContent: `flex-start`,
           minHeight: `100vh`,
           "@supports (height: 100svh)": {
             minHeight: `100svh`,
