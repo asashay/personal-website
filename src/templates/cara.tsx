@@ -31,12 +31,12 @@ const Cara = () => {
   return (
     <Layout>
       {isMobile ? (
-        <React.Fragment>
+        <div style={{ display: `flex`, flexDirection: `column`, gap: `20vh` }}>
           <Hero offset={0} isStatic />
           <About offset={0} isStatic />
           <Projects offset={0} isStatic />
           <Contact offset={0} isStatic />
-        </React.Fragment>
+        </div>
       ) : (
         <Parallax pages={desktopLayout.pages}>
           <Hero offset={0} factor={1} />
