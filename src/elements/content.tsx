@@ -14,6 +14,7 @@ const Content = ({ speed, offset, children, className = ``, factor = 1 }: Conten
   <ParallaxLayer
     sx={{
       padding: [3, 4, 4, 5],
+      overflow: `hidden`,
       display: `flex`,
       flexDirection: `column`,
       alignItems: `center`,

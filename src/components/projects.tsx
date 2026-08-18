@@ -93,7 +93,15 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
               h1: { gridColumn: `-1/1`, color: `white !important` },
             }}
           >
-            <h1 sx={{ fontSize: '2.25rem', marginBottom: '-20px'}}>My favourite projects</h1>
+            <h1
+              sx={{
+                fontSize: ['2rem', '2.25rem'],
+                lineHeight: 1.15,
+                marginBottom: [0, '-20px'],
+              }}
+            >
+              My favourite projects
+            </h1>
 
             <ProjectCard   
                 title="Samacare"
@@ -110,7 +118,7 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
                   </ul>
                   <div >
                     {
-                      scTech.map(i => <TechTag>{i}</TechTag>)
+                      scTech.map(i => <TechTag key={i}>{i}</TechTag>)
                     }
                   </div>
               </ProjectCard>
@@ -130,7 +138,7 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
                 </ul>
                 <div >
                   {
-                    jamtagTech.map(i => <TechTag>{i}</TechTag>)
+                    jamtagTech.map(i => <TechTag key={i}>{i}</TechTag>)
                   }
                 </div>
               </ProjectCard>
@@ -151,7 +159,7 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
                 </ul>
                 <div >
                   {
-                    windscribeTech.map(i => <TechTag>{i}</TechTag>)
+                    windscribeTech.map(i => <TechTag key={i}>{i}</TechTag>)
                   }
                 </div>
               </ProjectCard>
@@ -172,7 +180,7 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
                 </ul>
                 <div >
                   {
-                    simplerayTech.map(i => <TechTag>{i}</TechTag>)
+                    simplerayTech.map(i => <TechTag key={i}>{i}</TechTag>)
                   }
                 </div>
               </ProjectCard>

@@ -18,11 +18,20 @@ const ProjectCard = ({ link, title, children, bg, images = [] }: ProjectCardProp
   const [showDescription, setShowDescription] = useState(false);
   const arrowStyle = {
     cursor: 'pointer',
-    height: '32px',
+    alignItems: 'center',
+    appearance: 'none',
+    background: 'transparent',
+    border: 0,
+    color: 'white',
+    display: 'flex',
+    height: '44px',
+    justifyContent: 'center',
+    padding: 0,
     position: 'absolute',
-    top: '100px',
+    top: '50%',
+    transform: 'translateY(-50%)',
+    width: '44px',
     zIndex: 2,
-    fill: 'white',
     opacity: '0.6',
     '&:hover': {
       opacity: '1'
@@ -30,27 +39,38 @@ const ProjectCard = ({ link, title, children, bg, images = [] }: ProjectCardProp
   };
   const renderLeftNav = (onClick, disabled: boolean) => {
     return (
-      <img
+      <button
+        aria-label="Previous image"
         sx={arrowStyle}
-        src={arrowLeft}
         className='image-gallery-custom-left-nav'
         disabled={disabled}
-        onClick={onClick} />
+        onClick={onClick}
+        type="button"
+      >
+        <img src={arrowLeft} alt="" sx={{ height: '24px', width: '24px' }} />
+      </button>
     )
   }
 
   const   renderRightNav = (onClick, disabled) => {
     return (
-      <img
+      <button
+        aria-label="Next image"
         sx={{
           ...arrowStyle,
-          transform: 'scale(-1, 1)',
           right: 0,
         }}
-        src={arrowLeft}
         className='image-gallery-custom-right-nav'
         disabled={disabled}
-        onClick={onClick} />
+        onClick={onClick}
+        type="button"
+      >
+        <img
+          src={arrowLeft}
+          alt=""
+          sx={{ height: '24px', transform: 'scale(-1, 1)', width: '24px' }}
+        />
+      </button>
     )
   }
 
@@ -64,32 +84,35 @@ const ProjectCard = ({ link, title, children, bg, images = [] }: ProjectCardProp
         position: `relative`,
         textDecoration: `none`,
         borderRadius: `lg`,
-        px: 4,
-        py: 4,
+        px: [3, 4],
+        py: [3, 4],
         color: `white`,
         background: bg || `none`,
+        display: 'flex',
+        flexDirection: 'column',
         transition: `all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important`,
-        "&:hover": {
-          color: `white !important`,
-          transform: `translateY(-5px)`,
-          boxShadow: `xl`,
+        '@media (hover: hover)': {
+          "&:hover": {
+            color: `white !important`,
+            transform: `translateY(-5px)`,
+            boxShadow: `xl`,
+          },
         },
         height: '100%'
       }}
     >
         <div sx={{ 
-          height: '70%', 
-          minHeight: '70%', 
-          maxHeight: '70%',
+          flex: 1,
+          minHeight: ['210px', '230px'],
           'p': { margin: '0'},
-          'ul': { margin: '15px 0'},
+          'ul': { margin: '12px 0', paddingLeft: '1.25rem' },
         }}>
           {
             showDescription ? <div sx={{ 
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              height: '100%',
+              minHeight: '100%',
             }}>{children}</div> :
               <ImageGallery
                 items={images}
@@ -104,25 +127,41 @@ const ProjectCard = ({ link, title, children, bg, images = [] }: ProjectCardProp
         <div
           sx={{
             textShadow: '0 2px 10px rgba(0, 0, 0, 0.3)',
-            fontSize: '2rem',
+            fontSize: ['1.5rem', '1.75rem', '2rem'],
+            lineHeight: 1.25,
             marginTop: '10px',
           }}
         >
           {title}
         </div>
-        <div sx={{ display: 'flex'}}>
-          <span onClick={handleDescriptionClick}
+        <div sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
+          <button
+            aria-expanded={showDescription}
+            onClick={handleDescriptionClick}
+            type="button"
             sx={{
+              alignItems: 'center',
+              appearance: 'none',
+              background: 'transparent',
+              border: 0,
+              color: '#fff',
               cursor: 'pointer',
-              marginRight: '10px',
+              display: 'inline-flex',
+              font: 'inherit',
+              minHeight: '44px',
+              padding: 0,
+              textDecoration: 'underline',
               '&:hover': { fontWeight: 'bold', transition: 'font-weight 0.2s ease-in-out'}
             }}
           >
-            { `${showDescription ? 'Less text' : 'More info...' } |`}
-          </span>
+            {showDescription ? 'Show images' : 'More info'}
+          </button>
           <a href={link} sx={{
+              alignItems: 'center',
               cursor: 'pointer',
               color: '#fff',
+              display: 'inline-flex',
+              minHeight: '44px',
               textDecoration: 'underline',
               fontWeight: 'bold'
           }}>

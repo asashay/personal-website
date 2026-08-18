@@ -109,18 +109,34 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
     </Divider>
     <Content speed={0.4} offset={offset} factor={factor}>
       <Inner>
-        <h1 sx={{ fontSize: "2.25rem", fontWeight: "bold" }}>About</h1>
-        <div sx={{ display: "flex" }}>
+        <h1 sx={{ fontSize: ["2rem", "2.25rem"], fontWeight: "bold" }}>
+          About
+        </h1>
+        <div
+          sx={{
+            display: "flex",
+            flexDirection: ["column", "column", "row"],
+            alignItems: ["flex-start", "flex-start", "center"],
+          }}
+        >
           <img
             sx={{
-              width: "12rem",
-              height: "12rem",
+              width: ["8rem", "9rem", "12rem"],
+              height: ["8rem", "9rem", "12rem"],
               borderRadius: "50%",
+              flexShrink: 0,
             }}
             src={avatar}
             alt="Profile picture"
           />
-          <span sx={{ fontSize: "2.25rem", paddingLeft: "3rem" }}>
+          <span
+            sx={{
+              fontSize: ["1.1rem", "1.25rem", "1.75rem", "2.25rem"],
+              lineHeight: 1.45,
+              paddingLeft: [0, 0, "3rem"],
+              paddingTop: [3, 3, 0],
+            }}
+          >
             I've been doing Software Web Development for almost 8 years already.
             I like to get involved in front- and back-end development and get my
             hands dirty configuring deployments
@@ -128,20 +144,35 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
         </div>
         <div
           sx={{
-            fontSize: "1.5rem",
+            fontSize: ["1rem", "1.1rem", "1.25rem", "1.5rem"],
+            lineHeight: 1.45,
             backgroundColor: "rgba(255, 255, 255, 0.05)",
-            padding: "1.5rem",
+            padding: [3, 4],
             borderRadius: "0.5rem",
             boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            margin: "2rem 0",
+            margin: ["1.25rem 0", "2rem 0"],
           }}
         >
           <h3
-            sx={{ fontSize: "1.75rem", marginBottom: "1rem", color: "primary" }}
+            sx={{
+              fontSize: ["1.35rem", "1.5rem", "1.75rem"],
+              marginBottom: "1rem",
+              color: "primary",
+            }}
           >
             Technical Expertise
           </h3>
-          <ul sx={{ listStyleType: "none", padding: 0 }}>
+          <ul
+            sx={{
+              listStyleType: "none",
+              padding: 0,
+              margin: 0,
+              li: {
+                alignItems: "flex-start !important",
+                marginBottom: "0.65rem !important",
+              },
+            }}
+          >
             <li
               sx={{
                 marginBottom: "0.5rem",

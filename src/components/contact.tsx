@@ -34,10 +34,10 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
     </Divider>
     <Content speed={0.4} offset={offset} factor={factor}>
       <Inner>
-        <h1 sx={{ fontSize: '2.25rem', fontWeight: 'bold'}}>
+        <h1 sx={{ fontSize: ['2rem', '2.25rem'], fontWeight: 'bold'}}>
           Get in touch
         </h1>
-        <p sx={{ fontSize: '1.875rem', margin: '1rem 0'}}>
+        <p sx={{ fontSize: ['1.25rem', '1.5rem', '1.875rem'], lineHeight: 1.5, margin: '1rem 0'}}>
           Say <a href="mailto:oleksandr.olijnyk@gmail.com" target="_blank" rel="noreferrer noopener">Hi</a> or find me on other platforms: &nbsp;
           <a target="_blank" rel="noreferrer noopener" href="https://www.linkedin.com/in/oleksandroliynyk">LinkedIn</a> & <a href="https://twitter.com/alex__oliynyk" target="_blank" rel="noreferrer noopener">Twitter</a>
         </p>

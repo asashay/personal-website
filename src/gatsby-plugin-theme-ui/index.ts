@@ -56,6 +56,7 @@ const theme = merge(tailwind, {
       color: `text`,
       backgroundColor: `background`,
       WebkitTextSizeAdjust: `100%`,
+      overflowX: `hidden`,
       a: {
         color: `primary`,
         textDecoration: `none`,

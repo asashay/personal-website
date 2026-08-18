@@ -157,8 +157,9 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
           <h1
             sx={{
               textShadow: "0 5px 35px rgba(255, 255, 255, 0.15)",
-              fontSize: "5rem",
-              marginBottom: "1.5rem",
+              fontSize: ["3rem", "3.5rem", "4.25rem", "5rem"],
+              lineHeight: 1.05,
+              marginBottom: ["1rem", "1.25rem", "1.5rem"],
             }}
           >
             Nice to meet you, <br />
@@ -167,9 +168,10 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
           <div
             sx={{
               textShadow: "0 2px 15px rgba(0, 0, 0, 0.2)",
-              fontSize: "2.25rem",
-              marginTop: "2rem",
-              marginBottom: "2rem",
+              fontSize: ["1.35rem", "1.6rem", "1.9rem", "2.25rem"],
+              lineHeight: 1.35,
+              marginTop: ["1.25rem", "1.5rem", "2rem"],
+              marginBottom: ["1.25rem", "1.5rem", "2rem"],
             }}
           >
             Senior Software Engineer
@@ -181,13 +183,20 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
             &nbsp;crafting stellar digital experiences
           </div>
         </Typist>
-        <div></div>
-        <div
+        <nav
+          aria-label="Profile links"
           sx={{
-            fontSize: "28px",
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: [2, 3],
+            fontSize: ["1.1rem", "1.35rem", "1.75rem"],
             fontWeight: "bold",
             a: {
               cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              minHeight: "44px",
               "&:hover": { textDecoration: "underline" },
             },
           }}
@@ -202,8 +211,7 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
             }}
           >
             LinkedIn
-          </a>{" "}
-          |{" "}
+          </a>
           <a
             href="https://www.upwork.com/freelancers/~011eaa783914e93d3d"
             target="_blank"
@@ -214,8 +222,7 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
             }}
           >
             Upwork
-          </a>{" "}
-          |{" "}
+          </a>
           <a
             href="/OLEKSANDR_OLIYNYK_CV.pdf"
             target="_blank"
@@ -223,7 +230,7 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
           >
             Resume
           </a>
-        </div>
+        </nav>
       </Inner>
     </Content>
   </div>
