@@ -8,26 +8,46 @@ type ContentProps = {
   children: React.ReactNode
   className?: string
   factor?: number
+  isStatic?: boolean
 }
 
-const Content = ({ speed, offset, children, className = ``, factor = 1 }: ContentProps) => (
-  <ParallaxLayer
-    sx={{
-      padding: [3, 4, 4, 5],
-      overflow: `hidden`,
-      display: `flex`,
-      flexDirection: `column`,
-      alignItems: `center`,
-      justifyContent: `center`,
-      zIndex: 50,
-    }}
-    speed={speed}
-    offset={offset}
-    factor={factor}
-    className={className}
-  >
-    {children}
-  </ParallaxLayer>
-)
+const contentStyles = {
+  padding: [3, 4, 4, 5],
+  overflow: `hidden`,
+  display: `flex`,
+  flexDirection: `column` as const,
+  alignItems: `center`,
+  justifyContent: `center`,
+  zIndex: 50,
+}
+
+const Content = ({ speed, offset, children, className = ``, factor = 1, isStatic = false }: ContentProps) => {
+  if (isStatic) {
+    return (
+      <div
+        sx={{
+          ...contentStyles,
+          position: `relative`,
+          justifyContent: `flex-start`,
+        }}
+        className={className}
+      >
+        {children}
+      </div>
+    )
+  }
+
+  return (
+    <ParallaxLayer
+      sx={contentStyles}
+      speed={speed}
+      offset={offset}
+      factor={factor}
+      className={className}
+    >
+      {children}
+    </ParallaxLayer>
+  )
+}
 
 export default Content

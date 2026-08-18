@@ -7,9 +7,9 @@ import Svg from "./svg"
 import { UpDown, UpDownWide, waveAnimation } from "../styles/animations"
 import Footer from "./footer"
 
-const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
-  <div>
-    <Divider fill="divider" speed={0.2} offset={offset} factor={factor}>
+const Contact = ({ offset, factor = 1, isStatic = false }: { offset: number; factor?: number; isStatic?: boolean }) => (
+  <section sx={isStatic ? { position: `relative`, overflow: `hidden` } : undefined}>
+    <Divider fill="divider" speed={0.2} offset={offset} factor={factor} isStatic={isStatic}>
       <div sx={{ position: `absolute`, bottom: 0, width: `full`, transform: `matrix(1, 0, 0, -1, 0, 0)` }}>
         <div
           sx={{
@@ -32,7 +32,7 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
         </div>
       </div>
     </Divider>
-    <Content speed={0.4} offset={offset} factor={factor}>
+    <Content speed={0.4} offset={offset} factor={factor} isStatic={isStatic}>
       <Inner>
         <h1 sx={{ fontSize: ['2rem', '2.25rem'], fontWeight: 'bold'}}>
           Get in touch
@@ -44,7 +44,7 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
       </Inner>
       <Footer />
     </Content>
-    <Divider speed={0.1} offset={offset} factor={factor}>
+    <Divider speed={0.1} offset={offset} factor={factor} isStatic={isStatic}>
       <UpDown>
         <Svg icon="upDown" hiddenMobile width={8} color="icon_darkest" left="70%" top="20%" />
         <Svg icon="triangle" width={8} stroke color="icon_darkest" left="25%" top="5%" />
@@ -59,7 +59,7 @@ const Contact = ({ offset, factor = 1 }: { offset: number; factor?: number }) =>
       <Svg icon="box" width={12} color="icon_darkest" left="20%" top="30%" />
       <Svg icon="hexa" width={8} stroke color="icon_darkest" left="80%" top="70%" />
     </Divider>
-  </div>
+  </section>
 )
 
 export default Contact

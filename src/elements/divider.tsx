@@ -11,6 +11,7 @@ type DividerProps = {
   clipPath?: string
   className?: string
   factor?: number
+  isStatic?: boolean
 }
 
 const Divider = ({
@@ -22,27 +23,40 @@ const Divider = ({
   clipPath = ``,
   children = null,
   className = ``,
-}: DividerProps) => (
-  <ParallaxLayer
-    sx={{
-      position: `absolute`,
-      width: `full`,
-      height: `full`,
-      background: bg,
-      backgroundColor: bg,
-      "#contact-wave": {
-        color: fill,
-        fill: `currentColor`,
-      },
-      clipPath,
-    }}
-    speed={speed}
-    offset={offset}
-    factor={factor}
-    className={className}
-  >
-    {children}
-  </ParallaxLayer>
-)
+  isStatic = false,
+}: DividerProps) => {
+  const styles = {
+    position: `absolute` as const,
+    width: `full`,
+    height: `full`,
+    background: bg,
+    backgroundColor: bg,
+    "#contact-wave": {
+      color: fill,
+      fill: `currentColor`,
+    },
+    clipPath,
+  }
+
+  if (isStatic) {
+    return (
+      <div sx={{ ...styles, inset: 0 }} className={className} aria-hidden="true">
+        {children}
+      </div>
+    )
+  }
+
+  return (
+    <ParallaxLayer
+      sx={styles}
+      speed={speed}
+      offset={offset}
+      factor={factor}
+      className={className}
+    >
+      {children}
+    </ParallaxLayer>
+  )
+}
 
 export default Divider

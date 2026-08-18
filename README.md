@@ -30,6 +30,8 @@
 
 Playful and Colorful One-Page portfolio featuring Parallax effects and animations. Especially designers and/or photographers will love this theme! Built with [MDX](https://mdxjs.com/) and [Theme UI](https://theme-ui.com/).
 
+Deployment of this site is documented in [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 [![Live Preview](https://img.lekoarts.de/gatsby/preview.svg)](https://cara.lekoarts.de)
 
 Read the [Source Code](https://github.com/LekoArts/gatsby-starter-portfolio-cara).

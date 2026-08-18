@@ -28,7 +28,7 @@ import sr2 from '../images/sr2.png';
 import sr3 from '../images/sr3.png';
 import sr4 from '../images/sr4.png';
 
-const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) => {
+const Projects = ({ offset, factor = 2, isStatic = false }: { offset: number; factor?: number; isStatic?: boolean }) => {
   const scTech = [
     'React', 'Node.js', 'PostgreSQL', 'Web Extension'
   ]
@@ -75,15 +75,16 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
   ]
 
   return (
-    <div>
+    <section sx={isStatic ? { position: `relative`, overflow: `hidden` } : undefined}>
       <Divider
         bg="linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%)"
         sx={{ clipPath: `polygon(0 15%, 100% 25%, 100% 85%, 0 75%)` }}
         speed={-0.2}
         offset={1.1}
         factor={factor}
+        isStatic={isStatic}
       />
-      <Content speed={0.4} offset={offset + 0.2} factor={factor}>
+      <Content speed={0.4} offset={offset + 0.2} factor={factor} isStatic={isStatic}>
         <Inner>
           <div
             sx={{
@@ -187,7 +188,7 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
           </div>
         </Inner>
       </Content>
-      <Divider speed={0.1} offset={offset} factor={factor}>
+      <Divider speed={0.1} offset={offset} factor={factor} isStatic={isStatic}>
         <UpDown>
           <Svg icon="box" width={6} color="icon_brightest" left="85%" top="75%" />
           <Svg icon="upDown" width={8} color="icon_teal" left="70%" top="20%" />
@@ -209,7 +210,7 @@ const Projects = ({ offset, factor = 2 }: { offset: number; factor?: number }) =
         <Svg icon="hexa" width={16} stroke color="icon_red" left="75%" top="30%" />
         <Svg icon="hexa" width={8} stroke color="icon_yellow" left="80%" top="70%" />
       </Divider>
-    </div>
+    </section>
   )
 }
 

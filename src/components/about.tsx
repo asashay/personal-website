@@ -9,16 +9,17 @@ import { UpDown, UpDownWide } from "../styles/animations";
 
 import avatar from "../images/avatar.jpg";
 
-const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
-  <div>
+const About = ({ offset, factor = 1, isStatic = false }: { offset: number; factor?: number; isStatic?: boolean }) => (
+  <section sx={isStatic ? { position: `relative`, overflow: `hidden` } : undefined}>
     <Divider
       bg="divider"
       clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
       speed={0.2}
       offset={offset}
       factor={factor}
+      isStatic={isStatic}
     />
-    <Divider speed={0.1} offset={offset} factor={factor}>
+    <Divider speed={0.1} offset={offset} factor={factor} isStatic={isStatic}>
       <UpDown>
         <Svg
           icon="box"
@@ -107,7 +108,7 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
         top="70%"
       />
     </Divider>
-    <Content speed={0.4} offset={offset} factor={factor}>
+    <Content speed={0.4} offset={offset} factor={factor} isStatic={isStatic}>
       <Inner>
         <h1 sx={{ fontSize: ["2rem", "2.25rem"], fontWeight: "bold" }}>
           About
@@ -241,7 +242,7 @@ const About = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
         </div>
       </Inner>
     </Content>
-  </div>
+  </section>
 );
 
 export default About;

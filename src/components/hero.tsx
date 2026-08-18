@@ -8,9 +8,9 @@ import Content from "../elements/content";
 import Svg from "./svg";
 import { UpDown, UpDownWide } from "../styles/animations";
 
-const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
-  <div>
-    <Divider speed={0.2} offset={offset} factor={factor}>
+const Hero = ({ offset, factor = 1, isStatic = false }: { offset: number; factor?: number; isStatic?: boolean }) => (
+  <section sx={isStatic ? { position: `relative`, overflow: `hidden` } : undefined}>
+    <Divider speed={0.2} offset={offset} factor={factor} isStatic={isStatic}>
       <UpDown>
         <Svg
           icon="triangle"
@@ -147,6 +147,7 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
       speed={0.4}
       offset={offset}
       factor={factor}
+      isStatic={isStatic}
     >
       <Inner>
         <Typist
@@ -233,7 +234,7 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
         </nav>
       </Inner>
     </Content>
-  </div>
+  </section>
 );
 
 export default Hero;
