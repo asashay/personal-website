@@ -138,7 +138,7 @@ const About = ({ offset, factor = 1, isStatic = false }: { offset: number; facto
               paddingTop: [3, 3, 0],
             }}
           >
-            I've been doing Software Web Development for almost 8 years already.
+            I've been doing Software Web Development for more than 10 years already.
             I like to get involved in front- and back-end development and get my
             hands dirty configuring deployments
           </span>
