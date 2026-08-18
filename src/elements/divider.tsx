@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
 import { ParallaxLayer } from "@react-spring/parallax"
 
 type DividerProps = {

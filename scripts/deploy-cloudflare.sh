@@ -16,34 +16,55 @@ cleanup() {
 
 trap cleanup EXIT
 
-if [ ! -d "$repository_root/node_modules" ]; then
-  echo "node_modules is missing. Install dependencies before deploying." >&2
+current_branch="$(git -C "$repository_root" branch --show-current)"
+if [ "$current_branch" != "main" ]; then
+  echo "Production deployments must run from main; current branch is $current_branch." >&2
+  exit 1
+fi
+
+working_tree_changes="$(
+  git -C "$repository_root" status --porcelain --untracked-files=all -- \
+    . \
+    ':(exclude).DS_Store' \
+    ':(exclude,glob)**/.DS_Store'
+)"
+if [ -n "$working_tree_changes" ]; then
+  echo "The working tree is not clean. Commit or stash changes before deploying." >&2
   exit 1
 fi
 
 commit_hash="$(git -C "$repository_root" rev-parse HEAD)"
+remote_main="$(git -C "$repository_root" rev-parse --verify origin/main)"
+if [ "$commit_hash" != "$remote_main" ]; then
+  echo "HEAD does not match origin/main. Push the intended commit before deploying." >&2
+  exit 1
+fi
+
 commit_message="$(git -C "$repository_root" log -1 --pretty=%s)"
 
 rsync -a \
-  --exclude '.cache/' \
   --exclude '.codegraph' \
   --exclude '.DS_Store' \
+  --exclude '.env' \
+  --exclude '.env.*' \
   --exclude '.git/' \
+  --exclude 'dist/' \
   --exclude 'node_modules/' \
   --exclude 'public/' \
   "$repository_root/" "$staging_directory/"
 
-ln -s "$repository_root/node_modules" "$staging_directory/node_modules"
-
 cd "$staging_directory"
 
-echo "Building commit $commit_hash in $staging_directory"
-CI=1 npx --yes node@20.20.2 node_modules/gatsby/cli.js build
+echo "Installing the locked dependency graph"
+corepack yarn install --frozen-lockfile --non-interactive
 
-echo "Deploying public/ to Cloudflare Pages project my-website"
-npx --yes wrangler@4.123.0 pages deploy public \
+echo "Building commit $commit_hash in $staging_directory"
+CI=1 corepack yarn build
+
+echo "Deploying dist/ to Cloudflare Pages project my-website"
+corepack yarn wrangler pages deploy dist \
   --project-name my-website \
   --branch main \
   --commit-hash "$commit_hash" \
   --commit-message "$commit_message" \
-  --commit-dirty=true
+  --commit-dirty=false

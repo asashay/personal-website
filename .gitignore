@@ -39,6 +39,9 @@ jspm_packages
 # Optional eslint cache
 .eslintcache
 
+# TypeScript incremental build metadata
+*.tsbuildinfo
+
 # Optional REPL history
 .node_repl_history
 
@@ -51,7 +54,13 @@ jspm_packages
 
 # Build Files
 public/
+dist/
 .cache/
+
+# Local environment and OS metadata
+.env
+.env.*
+.DS_Store
 
 # Gatsby context
 .gatsby-context.js

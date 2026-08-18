@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import Typist from "react-typist-component";
 
 import Divider from "../elements/divider";

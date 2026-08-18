@@ -1,55 +1,44 @@
 {
-  "name": "@lekoarts/gatsby-theme-cara",
-  "version": "5.1.2",
-  "author": "LekoArts",
-  "description": "Playful and Colorful One-Page portfolio featuring Parallax effects and animations",
+  "name": "alex-oliynyk-personal-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Oleksandr (Alex) Oliynyk's personal portfolio website",
   "license": "MIT",
-  "main": "index.js",
-  "publishConfig": {
-    "access": "public"
-  },
+  "packageManager": "yarn@1.22.22",
   "scripts": {
-    "build": "gatsby build",
-    "build:log": "echo \"Build started at $(date)\"",
+    "build": "tsc -b && vite build",
     "deploy:cloudflare": "bash scripts/deploy-cloudflare.sh",
-    "deploy:list": "npx --yes wrangler@4.123.0 pages deployment list --project-name my-website",
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "clean": "gatsby clean"
+    "deploy:list": "wrangler pages deployment list --project-name my-website",
+    "develop": "vite",
+    "start": "vite",
+    "preview": "vite preview",
+    "typecheck": "tsc -b"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@mdx-js/react": "^2.3.0",
-    "@react-spring/parallax": "^9.7.2",
-    "@react-spring/web": "^9.7.2",
-    "@theme-ui/mdx": "~0.15.3",
-    "@theme-ui/preset-tailwind": "0.15.3",
-    "gatsby": "^5.5.0",
-    "gatsby-plugin-mdx": "^5.10.0",
-    "gatsby-plugin-theme-ui": "~0.15.3",
-    "gatsby-source-filesystem": "^5.10.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-image-gallery": "^1.2.12",
-    "react-typist-component": "^1.0.5",
-    "theme-ui": "~0.15.3"
+    "@emotion/react": "11.14.0",
+    "@react-spring/parallax": "9.7.5",
+    "@react-spring/web": "9.7.5",
+    "@theme-ui/css": "0.17.4",
+    "@theme-ui/preset-tailwind": "0.17.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-image-gallery": "2.1.2",
+    "react-typist-component": "1.1.1",
+    "theme-ui": "0.17.4"
   },
-  "keywords": [
-    "gatsby",
-    "gatsby-theme",
-    "gatsby-plugin",
-    "lekoarts"
-  ],
-  "bugs": {
-    "url": "https://github.com/LekoArts/gatsby-themes/issues"
+  "devDependencies": {
+    "@types/react": "18.3.28",
+    "@types/react-dom": "18.3.7",
+    "@vitejs/plugin-react": "6.0.5",
+    "typescript": "5.9.3",
+    "vite": "8.2.1",
+    "wrangler": "4.123.0"
   },
-  "homepage": "https://themes.lekoarts.de",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LekoArts/gatsby-themes.git",
-    "directory": "themes/gatsby-theme-cara"
+  "resolutions": {
+    "yaml": "1.10.3"
   },
   "engines": {
-    "node": "20.x"
+    "node": ">=20.19.0"
   }
 }

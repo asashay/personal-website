@@ -1,14 +1,12 @@
-import { merge, ThemeUIStyleObject } from "theme-ui"
+import { merge, type Theme, type ThemeUIStyleObject } from "theme-ui"
 import tailwind from "@theme-ui/preset-tailwind"
 
-declare module "theme-ui" {
-  interface Theme {
-    footer?: ThemeUIStyleObject
-    texts?: ThemeUIStyleObject
-  }
+type PortfolioTheme = Theme & {
+  footer: ThemeUIStyleObject
+  texts: Record<string, ThemeUIStyleObject>
 }
 
-const theme = merge(tailwind, {
+const portfolioTheme = {
   config: {
     initialColorModeName: `dark`,
   },
@@ -91,10 +89,10 @@ const theme = merge(tailwind, {
       },
     },
     h1: {
-      fontSize: "6rem",
+      fontSize: `6rem`,
       mt: 2,
       mb: 3,
-      textShadow: `rgba(255, 255, 255, 0.15) 0px 5px 35px`,
+      textShadow: `rgba(255, 255, 255, 0.15) 0 5px 35px`,
       letterSpacing: `wide`,
       color: `heading`,
     },
@@ -156,6 +154,8 @@ const theme = merge(tailwind, {
       },
     },
   },
-})
+} satisfies PortfolioTheme
+
+const theme = merge(tailwind, portfolioTheme)
 
 export default theme

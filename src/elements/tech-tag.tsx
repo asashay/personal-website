@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-
 const TechTag = ({ children }: { children: React.ReactNode }) => (
     <span sx={{
         padding: '5px 10px',

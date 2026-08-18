@@ -1,5 +1,4 @@
-/** @jsx jsx */
-import { Box, useColorMode, jsx } from "theme-ui"
+import { Box, useColorMode } from "theme-ui"
 
 const Footer = () => {
   const [colorMode, setColorMode] = useColorMode<"light" | "dark">()
@@ -12,7 +11,6 @@ const Footer = () => {
         onClick={() => {
           const next = isDark ? `light` : `dark`
           setColorMode(next)
-          document.documentElement.classList.value = `theme-ui-${next}`
         }}
         type="button"
         data-testid="color-mode-toggle"

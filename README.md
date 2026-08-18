@@ -1,164 +1,40 @@
-<p align="center">
-  <a href="https://themes.lekoarts.de">
-    <img alt="Gatsby Theme" src="https://img.lekoarts.de/gatsby/gatsby-themes-illustration.png" />
-  </a>
-</p>
-<h1 align="center">
-  @lekoarts/gatsby-theme-cara
-</h1>
+# Alex Oliynyk — personal website
 
-<p align="center">
-  <a href="https://github.com/LekoArts/gatsby-themes/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="@lekoarts/gatsby-theme-cara is released under the MIT license." />
-  </a>
-  <a href="https://www.npmjs.org/package/@lekoarts/gatsby-theme-cara">
-    <img src="https://img.shields.io/npm/v/@lekoarts/gatsby-theme-cara.svg" alt="Current npm package version." />
-  </a>
-  <a href="https://npmcharts.com/compare/@lekoarts/gatsby-theme-cara?minimal=true">
-    <img src="https://img.shields.io/npm/dm/@lekoarts/gatsby-theme-cara.svg" alt="Downloads per month on npm." />
-  </a>
-  <a href="https://npmcharts.com/compare/@lekoarts/gatsby-theme-cara?minimal=true">
-    <img src="https://img.shields.io/npm/dt/@lekoarts/gatsby-theme-cara.svg" alt="Total downloads on npm." />
-  </a>
-  <a href="https://www.lekoarts.de?utm_source=cara&utm_medium=Theme">
-    <img alt="Website" src="https://img.shields.io/badge/-website-blue">
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=lekoarts_de">
-      <img src="https://img.shields.io/twitter/follow/lekoarts_de.svg?label=Follow%20@lekoarts_de" alt="Follow @lekoarts_de" />
-    </a>
-</p>
+A one-page React portfolio built with Vite, Theme UI, and React Spring. The production site is hosted on Cloudflare Pages at [alexoliynyk.me](https://alexoliynyk.me).
 
-Playful and Colorful One-Page portfolio featuring Parallax effects and animations. Especially designers and/or photographers will love this theme! Built with [MDX](https://mdxjs.com/) and [Theme UI](https://theme-ui.com/).
+## Requirements
 
-Deployment of this site is documented in [DEPLOYMENT.md](./DEPLOYMENT.md).
+- Node.js 20.19 or newer (`.nvmrc` pins the deployment baseline)
+- Corepack, using Yarn 1.22.22 from the `packageManager` declaration
 
-[![Live Preview](https://img.lekoarts.de/gatsby/preview.svg)](https://cara.lekoarts.de)
-
-Read the [Source Code](https://github.com/LekoArts/gatsby-starter-portfolio-cara).
-
-Also be sure to check out other [Free & Open Source Gatsby Themes](https://themes.lekoarts.de) and my [Personal Website](https://www.lekoarts.de?utm_source=cara&utm_medium=Theme).
-
-## Features
-
-- Theme UI-based theming
-- react-spring parallax effect
-- CSS Animations on Shapes
-- Light/Dark mode
-
-## Installation
+## Local development
 
 ```sh
-npm install @lekoarts/gatsby-theme-cara
+corepack yarn install --frozen-lockfile
+corepack yarn develop
 ```
 
-### Install as a starter
+Vite prints the local URL when the development server starts.
 
-This will generate a new site that pre-configures the theme including example content and additional plugins.
+## Validation
 
 ```sh
-npx gatsby new gatsby-starter-portfolio-cara https://github.com/LekoArts/gatsby-starter-portfolio-cara
+corepack yarn typecheck
+corepack yarn build
+corepack yarn audit
 ```
 
-[**View the starter's code**](https://github.com/LekoArts/gatsby-starter-portfolio-cara)
+The production output is written to `dist/`. Source maps are disabled for production builds.
 
-## Usage
+## Deployment
 
-### Theme options
+See [DEPLOYMENT.md](./DEPLOYMENT.md). Production deployment is intentionally restricted to a clean, pushed `main` branch.
 
-| Key        | Default Value | Description                                                                                             |
-| ---------- | ------------- | ------------------------------------------------------------------------------------------------------- |
-| `basePath` | `/`           | Root url for the theme                                                                                  |
-| `mdx`      | `true`        | Configure `gatsby-plugin-mdx` (if your website already is using the plugin pass false to turn this off) |
+## Project structure
 
-#### Example usage
-
-```js
-// gatsby-config.mjs
-const config = {
-  plugins: [
-    {
-      resolve: `@lekoarts/gatsby-theme-cara`,
-      options: {
-        // basePath defaults to `/`
-        basePath: `/sideproject`,
-      },
-    },
-  ],
-};
-
-export default config;
-```
-
-#### Additional configuration
-
-In addition to the theme options, there are a handful of items you can customize via the `siteMetadata` object in your site's `gatsby-config.mjs`
-
-```js
-// gatsby-config.mjs
-const config = {
-  siteMetadata: {
-    // Used for the title template on pages other than the index site
-    siteTitle: `Cara`,
-    // Default title of the page
-    siteTitleAlt: `Cara - @lekoarts/gatsby-theme-cara`,
-    // Can be used for e.g. JSONLD
-    siteHeadline: `Cara - Gatsby Theme from @lekoarts`,
-    // Will be used to generate absolute URLs for og:image etc.
-    siteUrl: `https://cara.lekoarts.de`,
-    // Used for SEO
-    siteDescription: `Playful and Colorful One-Page portfolio featuring Parallax effects and animations`,
-    // Used for og:image and must be placed inside the `static` folder
-    siteImage: `/banner.jpg`,
-    // Set the default "lang" attribute on "html" element
-    siteLanguage: `en`,
-    // Twitter Handle
-    author: `@lekoarts_de`,
-  },
-};
-
-export default config;
-```
-
-### Shadowing
-
-Please read the guide [Shadowing in Gatsby Themes](https://www.gatsbyjs.com/docs/how-to/plugins-and-themes/shadowing/) to understand how to customize the theme! Generally speaking you will want to place your files into `src/@lekoarts/gatsby-theme-cara/` to shadow/override files. The Theme UI config can be configured by shadowing its files in `src/gatsby-plugin-theme-ui/`.
-
-### Editing the content
-
-The content of the page is managed by `.mdx` files inside the theme's `sections` folder. You can edit the files by shadowing them in your site.
-
-These files are available: `intro.mdx`, `projects.mdx`, `about.mdx`, `contact.mdx`
-
-See the [example](https://github.com/LekoArts/gatsby-themes/tree/main/examples/cara/src/@lekoarts/gatsby-theme-cara/sections) that shadows via `src/@lekoarts/gatsby-theme-cara/sections/intro.mdx`:
-
-```md
-# Hi, I'm Jane Doe
-
-I'm creating noice web experiences for the next generation of consumer-facing companies
-```
-
-> The other headings should be `<h2>` headings!
-
-You also have access to the `<ProjectCard />` component/shortcode which is used in the `projects.mdx` section. The component takes the props `title` (string), `link` (string), `bg` (string) and `children` (React.ReactNode). You would use it like that:
-
-```md
-## Projects
-
-<ProjectCard title="Freiheit" link="https://www.behance.net/gallery/58937147/Freiheit" bg="linear-gradient(to right, #D4145A 0%, #FBB03B 100%)">
-This project is my entry to Adobe's #ChallengeYourPerspective contest.
-</ProjectCard>
-```
-
-## Changelog
-
-You can find the extensive [changelog of changes on GitHub](https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-cara/CHANGELOG.md). You'll be able to see each patch, minor, and major changes and what pull requests contributed to them.
-
-## Questions?
-
-If you have general questions or need help with Gatsby, please go to one of the [support platforms](https://www.gatsbyjs.com/contributing/community/#where-to-get-support) mentioned in Gatsby's documentation. If you have a specific question about this theme, you can head to the [GitHub Discussions](https://github.com/LekoArts/gatsby-themes/discussions) of the repository.
-
-## 🌟 Supporting me
-
-Thanks for using this project! I'm always interested in seeing what people do with my projects, so don't hesitate to tag me on [Twitter](https://twitter.com/lekoarts_de) and share the project with me.
-
-Please star this project, share it on Social Media or consider supporting me on [Patreon](https://www.patreon.com/lekoarts) or [GitHub Sponsor](https://github.com/sponsors/LekoArts)!
+- `index.html` — document metadata and Vite entry point
+- `src/app.tsx` — responsive page composition
+- `src/components/` — portfolio sections and interactive components
+- `src/theme.ts` — Theme UI tokens and color modes
+- `static/` — public assets and Cloudflare security headers
+- `scripts/deploy-cloudflare.sh` — reproducible Cloudflare Pages deployment

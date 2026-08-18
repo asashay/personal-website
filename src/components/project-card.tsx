@@ -1,8 +1,7 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-import { useState} from "react"
+import { useState, type MouseEventHandler } from "react"
+import type { ThemeUIStyleObject } from "theme-ui"
 
-import "react-image-gallery/styles/css/image-gallery.css";
+import "react-image-gallery/styles/image-gallery.css";
 import ImageGallery from 'react-image-gallery';
 import arrowLeft from '../images/left-chevron.svg';
 
@@ -16,7 +15,7 @@ type ProjectCardProps = {
 
 const ProjectCard = ({ link, title, children, bg, images = [] }: ProjectCardProps) => {
   const [showDescription, setShowDescription] = useState(false);
-  const arrowStyle = {
+  const arrowStyle: ThemeUIStyleObject = {
     cursor: 'pointer',
     alignItems: 'center',
     appearance: 'none',
@@ -37,7 +36,7 @@ const ProjectCard = ({ link, title, children, bg, images = [] }: ProjectCardProp
       opacity: '1'
     }
   };
-  const renderLeftNav = (onClick, disabled: boolean) => {
+  const renderLeftNav = (onClick: MouseEventHandler<HTMLButtonElement>, disabled: boolean) => {
     return (
       <button
         aria-label="Previous image"
@@ -52,7 +51,7 @@ const ProjectCard = ({ link, title, children, bg, images = [] }: ProjectCardProp
     )
   }
 
-  const   renderRightNav = (onClick, disabled) => {
+  const renderRightNav = (onClick: MouseEventHandler<HTMLButtonElement>, disabled: boolean) => {
     return (
       <button
         aria-label="Next image"

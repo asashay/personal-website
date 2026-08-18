@@ -1,6 +1,3 @@
-/** @jsx jsx */
-import { jsx } from "theme-ui"
-
 type InnerProps = {
   className?: string
   children: React.ReactNode
