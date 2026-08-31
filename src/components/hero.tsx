@@ -212,7 +212,7 @@ const Hero = ({ offset, factor = 1, isStatic = false }: { offset: number; factor
             LinkedIn
           </a>
           <a
-            href="https://www.upwork.com/freelancers/~011eaa783914e93d3d"
+            href="https://www.upwork.com/freelancers/~011eaa783914e93d3d?mp_source=share"
             target="_blank"
             rel="noreferrer noopener"
             sx={{
