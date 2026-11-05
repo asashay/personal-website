@@ -191,7 +191,7 @@ const About = ({ offset, factor = 1, isStatic = false }: { offset: number; facto
             >
               <span sx={{ color: "primary", marginRight: "0.5rem" }}>•</span>
               <strong sx={{ marginRight: "0.5rem" }}>Backend:</strong> Node.js,
-              AWS, Google Cloud
+              Python (Django), AWS, Google Cloud
             </li>
             <li sx={{ display: "flex", alignItems: "center" }}>
               <span sx={{ color: "primary", marginRight: "0.5rem" }}>•</span>

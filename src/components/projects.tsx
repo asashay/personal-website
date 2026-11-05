@@ -28,7 +28,7 @@ import sr4 from '../images/sr4.png';
 
 const Projects = ({ offset, factor = 2, isStatic = false }: { offset: number; factor?: number; isStatic?: boolean }) => {
   const scTech = [
-    'React', 'Node.js', 'PostgreSQL', 'Web Extension'
+    'React', 'Node.js', 'Python', 'PostgreSQL', 'Web Extension'
   ]
 
   const scImages = [
